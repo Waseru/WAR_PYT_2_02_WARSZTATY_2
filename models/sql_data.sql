@@ -8,7 +8,7 @@ PRIMARY KEY(id)
 
 "wyrzuca błąd. wydaje mi się, ze nie moze byc dwóch pozycji z int not null?"
 CREATE TABLE Messages (
-id INT AUTO INCREMENT,
+id INT AUTO_INCREMENT,
 sender_id INT NOT NULL,
 recipient_id INT NOT NULL,
 text VARCHAR(256),
@@ -34,4 +34,16 @@ mysql> explain User;
 | username        | varchar(255) | YES  |     | NULL    |                |
 | hashed_password | varchar(80)  | YES  |     | NULL    |                |
 +-----------------+--------------+------+-----+---------+----------------+
+
+mysql> explain Messages;
++---------------+--------------+------+-----+---------+----------------+
+| Field         | Type         | Null | Key | Default | Extra          |
++---------------+--------------+------+-----+---------+----------------+
+| id            | int(11)      | NO   | PRI | NULL    | auto_increment |
+| sender_id     | int(11)      | NO   | MUL | NULL    |                |
+| recipient_id  | int(11)      | NO   |     | NULL    |                |
+| text          | varchar(256) | YES  |     | NULL    |                |
+| creation_date | date         | YES  |     | NULL    |                |
++---------------+--------------+------+-----+---------+----------------+
+
 
